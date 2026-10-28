@@ -44,7 +44,7 @@ a{color:inherit;text-decoration:none}
 .btn.sm{height:46px;padding:0 20px;font-size:15px}
 
 /* Первый экран: текст слева на чистом фоне, фото справа */
-.hero{position:relative;min-height:clamp(560px,calc(100vh - 122px),780px);overflow:hidden;background:#fff}
+.hero{position:relative;min-height:clamp(560px,calc(100vh - 138px),780px);overflow:hidden;background:#fff}
 .hero .photo{position:absolute;inset:0 0 0 18%;background:url(img/hero-tubes.webp) 100% 50%/cover no-repeat}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#fff 0%,#fff 34%,rgba(255,255,255,.7) 46%,rgba(255,255,255,0) 62%)}
 .copy{position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center;min-height:inherit;padding:56px var(--gutter);max-width:min(720px,58vw)}
@@ -353,6 +353,43 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
  .card h3{grid-column:2;margin:2px 0 0;align-self:start}
  .card .sub{grid-column:1/-1;margin-top:14px}
  .card .act{grid-column:1/-1;align-self:end}
+}
+
+/* ===== Правки: шапка, логотипы, карточки, окно выбора, заявка, «наверх» ===== */
+.nav{height:96px}.nav img{height:68px}
+.telbox{display:flex;align-items:center;gap:12px}
+.telbox svg{width:22px;height:22px;fill:var(--green-600);flex:none}
+.telbox .tl{display:grid;gap:1px;font:600 16px/1.25 var(--font-body);letter-spacing:-.005em}
+.telbox .tl a:hover{color:var(--green-600)}
+.flogo{height:84px;margin-bottom:18px;display:block}
+.motto{display:grid;gap:6px;margin:0}
+.motto b{font:600 14px/1.3 var(--font-body);letter-spacing:.12em;text-transform:uppercase;color:var(--s200)}
+.motto span{font:500 13px var(--font-mark);letter-spacing:.14em;text-transform:uppercase;color:var(--s300)}
+footer .ct{display:grid;gap:0;margin-bottom:10px}
+footer .ct small{font-size:12.5px;color:var(--s300);letter-spacing:.04em}
+.card{cursor:pointer}
+.card .act .btn{width:100%;justify-content:center}
+.card:focus-visible{outline:2px solid var(--green-600);outline-offset:2px}
+.chip{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.chip .ct{flex:1 1 220px;min-width:0}
+.chip .qty{width:92px;height:36px;border:1.5px solid var(--s200);border-radius:8px;padding:0 10px;font:400 14.5px var(--font-body);background:#fff}
+.chip .qty:focus,.chip .qu:focus{outline:none;border-color:var(--green-600)}
+.chip .qu{height:36px;border:1.5px solid var(--s200);border-radius:8px;padding:0 6px;font:400 14.5px var(--font-body);background:#fff}
+dialog{display:flex;flex-direction:column;max-height:86vh}dialog:not([open]){display:none}
+dialog .dlg-b{flex:1;min-height:0;overflow:auto}
+.dlg-f{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 20px;border-top:1px solid var(--line);background:#fff;border-radius:0 0 16px 16px}
+.dlg-f span{font-size:14.5px;color:var(--ink-2)}
+.totop{position:fixed;right:20px;bottom:20px;z-index:41;width:48px;height:48px;border-radius:50%;border:1px solid var(--s200);background:#fff;color:var(--s700);cursor:pointer;display:grid;place-items:center;box-shadow:var(--sh2);opacity:0;pointer-events:none;transform:translateY(8px);transition:.25s}
+.totop.show{opacity:1;pointer-events:auto;transform:none}
+.totop:hover{border-color:var(--s500)}
+.totop svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.fab{right:80px}
+@media(max-width:700px){
+ .nav{height:88px}.nav img{height:58px}
+ .nav .telbox{margin-left:auto;gap:8px;padding:6px 12px;border:1px solid var(--s200);border-radius:14px;background:#fff;box-shadow:var(--sh1)}
+ .telbox svg{width:18px;height:18px}.telbox .tl{font-size:14px}
+ .flogo{height:68px}
+ .fab{right:72px;bottom:16px}.totop{right:14px;bottom:16px}
 }
 </style></head><body>
 <svg xmlns="http://www.w3.org/2000/svg" style="position:absolute;width:0;height:0;overflow:hidden"><symbol id="i-armatura" viewBox="0 0 96 96"><g transform="rotate(-18 48 48)"><path d="M20 35H68M20 61H68" fill="none"/><path d="M20 35A7 13 0 0 0 20 61" style="fill:var(--f,none)"/><ellipse cx="68" cy="48" rx="7" ry="13" style="fill:var(--f,none)"/><path d="M29 35l6 26M40 35l6 26M51 35l6 26" class="th" stroke-width="1.5"/><path d="M22 48H60" class="th" stroke-width="1.5" style="opacity:.4"/></g></symbol><symbol id="i-round_bar" viewBox="0 0 96 96"><circle cx="48" cy="48" r="25" style="fill:var(--f,none)"/><path d="M48 42v12M42 48h12" class="th" stroke-width="1.5"/></symbol><symbol id="i-wire_rod" viewBox="0 0 96 96"><circle cx="48" cy="48" r="30" fill="none"/><circle cx="48" cy="48" r="23" fill="none"/><circle cx="48" cy="48" r="16" fill="none"/><circle cx="48" cy="48" r="9" style="fill:var(--f,none)"/></symbol><symbol id="i-wire" viewBox="0 0 96 96"><path d="M8 60C18 30 36 30 40 52 44 74 60 70 60 52 60 36 46 38 50 54 54 70 74 66 88 36" fill="none" class="w"/></symbol><symbol id="i-pipes_prof" viewBox="0 0 96 96"><rect x="18" y="26" width="60" height="44" rx="6" style="fill:var(--f,none)"/><rect x="25" y="33" width="46" height="30" rx="2.5" style="fill:var(--b,#fff)"/></symbol><symbol id="i-pipes_round" viewBox="0 0 96 96"><circle cx="48" cy="48" r="28" style="fill:var(--f,none)"/><circle cx="48" cy="48" r="20" style="fill:var(--b,#fff)"/></symbol><symbol id="i-sheets" viewBox="0 0 96 96"><path d="M14 58L34 34H84L64 58Z" style="fill:var(--f,none)"/><path d="M14 58H64V67H14Z" style="fill:var(--f,none)"/><path d="M64 58L84 34V43L64 67" style="fill:var(--f,none)"/></symbol><symbol id="i-sheets_coil" viewBox="0 0 96 96"><path d="M40 22H70A9 30 0 0 1 70 82H40" style="fill:var(--f,none)"/><circle cx="40" cy="52" r="30" style="fill:var(--f,none)"/><circle cx="40" cy="52" r="13" style="fill:var(--b,#fff)"/><circle cx="40" cy="52" r="4" style="fill:var(--f,none)"/></symbol><symbol id="i-beams" viewBox="0 0 96 96"><path d="M22 20H74V31H54V65H74V76H22V65H42V31H22Z" style="fill:var(--f,none)"/></symbol><symbol id="i-euro_beam" viewBox="0 0 96 96"><path d="M16 22H80V35H54V61H80V74H16V61H42V35H16Z" style="fill:var(--f,none)"/></symbol><symbol id="i-channels" viewBox="0 0 96 96"><path d="M26 20H72V31H40V65H72V76H26Z" style="fill:var(--f,none)"/></symbol><symbol id="i-angles" viewBox="0 0 96 96"><path d="M22 20H35V61H76V74H22Z" style="fill:var(--f,none)"/></symbol><symbol id="i-square" viewBox="0 0 96 96"><rect x="25" y="25" width="46" height="46" rx="2" style="fill:var(--f,none)"/><path d="M25 25l46 46M71 25L25 71" class="th" stroke-width="1.5"/></symbol><symbol id="i-strip" viewBox="0 0 96 96"><rect x="10" y="38" width="76" height="20" rx="1.5" style="fill:var(--f,none)"/><path d="M10 28H86M10 24v8M86 24v8" class="th" stroke-width="1.5"/></symbol></svg>
@@ -18435,7 +18472,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
   <span class="badge"><i></i>2 металлобазы + логистический хаб</span><span class="sep hide-m"></span>
   <span class="hide-m">Кишинёв: Пн–Пт 08:00–17:00</span><span class="sep hide-m"></span><span class="hide-m">Орхей: Пн–Пт 08:00–17:00, Сб 08:00–14:00</span>
   <span class="sp"></span>
-  <a href="#calc">Калькулятор веса</a><a href="viber://chat?number=%2B37368471530">Viber</a>
+  <a href="viber://chat?number=%2B37368471530">Viber</a>
   <span class="lang"><a class="on" href="#">RU</a><a href="#">RO</a></span>
 </div>
 
@@ -18443,8 +18480,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
   <a href="#"><img src="img/logo-green.png" alt="Metalica Zuev"></a>
   <ul><li><a href="#catalog">Сортамент</a></li><li><a href="#calc">Калькулятор</a></li><li><a href="#hand">Справочник весов</a></li><li><a href="#service">Сервис и резка</a></li><li><a href="#bases">Металлобазы</a></li><li><a href="#order">Контакты</a></li></ul>
   <span class="sp"></span>
-  <a class="tel" href="tel:+37368471530"><svg viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><span>+373 68 47-15-30</span></a>
-  <a class="btn primary sm" href="#order">Запросить расчёт</a>
+  <div class="telbox"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><div class="tl"><a href="tel:+37368471530">+373 68 47-15-30</a><a href="tel:+37322471530">+373 22 47-15-30</a></div></div>
 </header>
 
 <section class="hero">
@@ -18453,7 +18489,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
     <h1>Металлопрокат<br>в Молдове</h1>
     <p class="since">с 1989 года</p>
     <p class="lead">Арматура, трубы, лист, балки, швеллеры и уголки. Продажа, резка в размер и доставка.</p>
-    <div class="cta"><a class="btn primary" href="#order">Запросить расчёт</a><a class="btn outline" href="#catalog">Смотреть каталог</a></div>
+    <div class="cta"><a class="btn primary" href="#order">Запросить расчёт</a><a class="btn outline" href="#catalog">Каталог</a></div>
     <div class="facts"><div class="fact"><b>35+</b><span>лет на рынке</span></div><div class="fact"><b>2 + хаб</b><span>металлобазы в Молдове</span></div></div>
     <div class="feats"><span>Резка в размер</span><span>Доставка по Молдове</span></div>
   </div>
@@ -18500,9 +18536,9 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
   <div class="head"><div><div class="kick">Сервис</div><h2>Не только металл</h2></div><p>Подготовим заказ к монтажу и доставим на объект, чтобы стройка не простаивала.</p></div>
   <div class="svc">
     <div class="s"><span class="n">01</span><h3>Комплектация по ведомости</h3><p>Соберём сборную партию из разных категорий: арматура, труба, лист, швеллер, на одной машине.</p></div>
-    <div class="s"><span class="n">02</span><h3>Резка в размер</h3><p>Резка по вашим размерам. Готовые заготовки сразу под монтаж, без лишних отходов на площадке.</p></div>
+    <div class="s"><span class="n">02</span><h3>Резка в размер</h3><p>Резка металла газом, плазмой, лазером по вашим размерам. Готовые заготовки сразу под монтаж, без лишних отходов на площадке.</p></div>
     <div class="s"><span class="n">03</span><h3>Погрузка краном</h3><p>Краны на базах: быстрая погрузка длинномерного проката.</p></div>
-    <div class="s"><span class="n">04</span><h3>Доставка по Молдове</h3><p>Привезём на ваш объект в любой город и район Молдовы: собственные длинномеры и манипуляторы.</p></div>
+    <div class="s"><span class="n">04</span><h3>Доставка по Молдове</h3><p>Привезём на ваш объект в любой город и район Молдовы. Собственные длинномеры, услуги манипулятора.</p></div>
   </div>
 </div></section>
 
@@ -18538,6 +18574,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
       <div class="field"><label for="fp">Телефон (Viber)</label><input class="inp" id="fp" type="tel" placeholder="+373 ___ __ ___" autocomplete="tel"></div></div>
       <div class="field"><label for="ft">Что нужно (список позиций, объёмы)</label><textarea class="inp" id="ft" placeholder="Например: арматура 12 мм, 5 тонн; труба профильная 40×20×2, 200 м"></textarea></div>
       <div class="field"><label for="ff">Файл со сметой, чертёж или фото списка</label><input class="inp file" id="ff" type="file" accept=".xls,.xlsx,.pdf,.jpg,.jpeg,.png,.dwg"></div>
+      <div class="field"><label for="fc">Ваш комментарий</label><textarea class="inp" id="fc" style="min-height:90px" placeholder="Сроки, адрес доставки, резка, другие пожелания"></textarea></div>
       <button class="btn primary" type="submit" style="width:100%;justify-content:center">Запросить расчёт</button>
       <div class="ok" id="ok">Заявка принята. В этом прототипе она никуда не отправляется.</div>
     </form>
@@ -18553,16 +18590,21 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
 
 <footer><div class="wrap">
   <div class="fg">
-    <div><img src="img/logo-white.png" alt="Metalica Zuev" style="height:54px;margin-bottom:14px"><p>Металлопрокат в Молдове с 1989 года.</p></div>
-    <div><h4>Разделы</h4><p><a href="#catalog">Сортамент</a></p><p><a href="#calc">Калькулятор</a></p><p><a href="#service">Сервис и резка</a></p><p><a href="#bases">Металлобазы</a></p></div>
-    <div><h4>Контакты</h4><p><a href="tel:+37368471530">+373 68 47-15-30</a></p><p><a href="viber://chat?number=%2B37368471530">Viber</a></p><p>Орхей: <a href="tel:+37323580008">0235 80 008</a></p></div>
+    <div><img class="flogo" src="img/logo-white.png" alt="Metalica Zuev"><p class="motto"><b>Традиции и ответственность</b><span>Основана в 1989</span></p></div>
+    <div><h4>Разделы</h4><p><a href="#catalog">Сортамент</a></p><p><a href="#calc">Калькулятор</a></p><p><a href="#hand">Справочник весов</a></p><p><a href="#service">Сервис и резка</a></p><p><a href="#bases">Металлобазы</a></p></div>
+    <div><h4>Контакты</h4>
+      <p class="ct"><small>Мобильный</small><a href="tel:+37368471530">+373 68 47-15-30</a></p>
+      <p class="ct"><small>Стационарный</small><a href="tel:+37322471530">+373 22 47-15-30</a></p>
+      <p class="ct"><small>Орхей</small><a href="tel:+37323580008">0235 80 008</a></p>
+      <p class="ct"><small>Viber</small><a href="viber://chat?number=%2B37368471530">Написать в Viber</a></p></div>
     <div><h4>Базы</h4><p>Кишинёв, str. Industrială, 48</p><p>Орхей, str. Unirii, 49D</p><p>Сынжера, str. Industrială, 3</p></div>
   </div>
   <div class="copy2"><span>© Metalica Zuev SRL</span><span>Все права защищены</span></div>
 </div></footer>
+<button class="totop" id="totop" type="button" aria-label="Наверх"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg></button>
 
 <dialog id="dsz"><div class="dlg-h"><h3 id="dszt">Размеры</h3><button class="x" id="dszx" aria-label="Закрыть">×</button></div>
-  <div class="dlg-b"><input class="search" id="dszs" placeholder="Поиск по размеру или названию"><div class="list" id="dszl"></div><div class="count" id="dszc"></div></div></dialog>
+  <div class="dlg-b"><input class="search" id="dszs" placeholder="Поиск по размеру или названию"><div class="list" id="dszl"></div><div class="count" id="dszc"></div></div><div class="dlg-f"><span id="dszn"></span><button class="btn primary sm" id="dszd" type="button">Готово</button></div></dialog>
 <button class="fab" id="fab" type="button">Заявка <b id="fabn">0</b></button>
 <script>
 (async function(){
@@ -18583,11 +18625,14 @@ const inGroups=(it,set)=>{for(let c=it.group;c;c=G[c]&&G[c].parent)if(set.has(c)
 const basket=[];
 function renderBasket(){
   $('#basketBox').style.display=basket.length?'block':'none';
-  $('#basket').innerHTML=basket.map((t,i)=>`<div class="chip"><span>${esc(t)}</span><button type="button" data-i="${i}" aria-label="Убрать">×</button></div>`).join('');
+  $('#basket').innerHTML=basket.map((x,i)=>`<div class="chip" data-i="${i}"><span class="ct">${esc(x.t)}</span><input class="qty" type="number" min="0" step="any" inputmode="decimal" placeholder="Кол-во" value="${esc(x.q)}" aria-label="Количество"><select class="qu" aria-label="Единица">${['шт','м','т'].map(u=>`<option${u===x.u?' selected':''}>${u}</option>`).join('')}</select><button type="button" data-i="${i}" aria-label="Убрать">×</button></div>`).join('');
   $('#fabn').textContent=basket.length;$('#fab').classList.toggle('show',basket.length>0);
 }
-function add(t){basket.push(t);renderBasket()}
-$('#basket').onclick=e=>{const b=e.target.closest('button[data-i]');if(b){basket.splice(+b.dataset.i,1);renderBasket()}};
+function add(t){basket.push({t,q:'',u:'шт'});renderBasket()}
+function drop(t){const i=basket.findIndex(x=>x.t===t);if(i>=0){basket.splice(i,1);renderBasket()}}
+const inBasket=t=>basket.some(x=>x.t===t);
+$('#basket').onclick=e=>{const b=e.target.closest('button[data-i]');if(b){basket.splice(+b.dataset.i,1);renderBasket();if($('#dsz').open)renderList()}};
+$('#basket').addEventListener('input',e=>{const c=e.target.closest('.chip');if(!c)return;const x=basket[+c.dataset.i];if(e.target.classList.contains('qty'))x.q=e.target.value;else if(e.target.classList.contains('qu'))x.u=e.target.value});
 $('#fab').onclick=()=>document.getElementById('order').scrollIntoView();
 $('#form').onsubmit=e=>{e.preventDefault();$('#ok').style.display='block'};
 
@@ -18607,28 +18652,29 @@ const ICON={
  square:'<rect x="6" y="6" width="12" height="12"/>',strip:'<rect x="3" y="9.5" width="18" height="5"/>'};
 function itemsOf(p){const set=new Set(p.groups);return N.items.filter(i=>inGroups(i,set))}
 $('#cards').innerHTML=C.products.map(p=>{
-  const sp=p.specs.slice(0,2).map(s=>`<div><b>${esc(s.label)}:</b> ${esc(s.value)}</div>`).join('');
-  return `<article class="card" data-id="${p.id}"><div class="ico"><svg viewBox="0 0 96 96"><use href="#i-${p.id}"/></svg></div>
-  <div class="no">${p.code}</div><h3>${esc(p.title)}</h3><div class="sub">${esc(cleanSub(p))}</div><div class="tag">${esc(p.tag)}</div>
-  <div class="spec">${sp}</div>
-  <div class="act"><button class="btn primary xs" data-act="order" type="button">Заказать</button><button class="btn ghost xs" data-act="sizes" type="button">Размеры</button></div></article>`}).join('');
+  return `<article class="card" data-id="${p.id}" tabindex="0"><div class="ico"><svg viewBox="0 0 96 96"><use href="#i-${p.id}"/></svg></div>
+  <div class="no">${p.code}</div><h3>${esc(p.title)}</h3><div class="sub">${esc(cleanSub(p))}</div>
+  <div class="act"><button class="btn primary xs" data-act="order" type="button">Заказать</button></div></article>`}).join('');
 let cur=null;
+function updDone(){$('#dszn').textContent=basket.length?`В заявке: ${basket.length}`:'Выберите нужные размеры'}
 function renderList(){
   const q=$('#dszs').value.trim().toLowerCase();const all=itemsOf(cur);
   const f=q?all.filter(i=>i.ru.toLowerCase().includes(q)):all;
-  $('#dszl').innerHTML=f.map(i=>`<div class="row"><span>${esc(cleanName(i.ru))}</span><button class="btn ghost xs" type="button" data-t="${esc(cleanName(i.ru))}">В заявку</button></div>`).join('')||'<div class="row">Ничего не найдено</div>';
-  $('#dszc').textContent=`Показано ${f.length} из ${all.length} позиций`;
+  $('#dszl').innerHTML=f.map(i=>{const n=cleanName(i.ru),on=inBasket(n);return `<div class="row"><span>${esc(n)}</span><button class="btn ${on?'primary':'ghost'} xs" type="button" data-t="${esc(n)}">${on?'✓ Выбрано':'Выбрать'}</button></div>`}).join('')||'<div class="row">Ничего не найдено</div>';
+  $('#dszc').textContent=`Показано ${f.length} из ${all.length} позиций`;updDone();
 }
-$('#cards').onclick=e=>{
-  const b=e.target.closest('button[data-act]');if(!b)return;
-  const p=C.products.find(x=>x.id===b.closest('.card').dataset.id);
-  if(b.dataset.act==='order'){add(p.title);document.getElementById('order').scrollIntoView();}
-  else{cur=p;$('#dszt').textContent=p.title;$('#dszs').value='';renderList();$('#dsz').showModal();}
-};
+function openCard(card){cur=C.products.find(x=>x.id===card.dataset.id);$('#dszt').textContent=cur.title;$('#dszs').value='';renderList();$('#dsz').showModal()}
+$('#cards').onclick=e=>{const c=e.target.closest('.card');if(c)openCard(c)};
+$('#cards').onkeydown=e=>{if((e.key==='Enter'||e.key===' ')&&e.target.classList.contains('card')){e.preventDefault();openCard(e.target)}};
 $('#dszs').oninput=renderList;
-$('#dszl').onclick=e=>{const b=e.target.closest('button[data-t]');if(b){add(b.dataset.t);b.textContent='Добавлено';b.disabled=true}};
+$('#dszl').onclick=e=>{const b=e.target.closest('button[data-t]');if(!b)return;const t=b.dataset.t;
+  if(inBasket(t)){drop(t);b.className='btn ghost xs';b.textContent='Выбрать'}else{add(t);b.className='btn primary xs';b.textContent='✓ Выбрано'}updDone()};
 $('#dszx').onclick=()=>$('#dsz').close();
+$('#dszd').onclick=()=>{$('#dsz').close();if(basket.length)document.getElementById('order').scrollIntoView()};
 $('#dsz').addEventListener('click',e=>{if(e.target===$('#dsz'))$('#dsz').close()});
+/* наверх */
+const tt=$('#totop');addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>500),{passive:true});
+tt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
 
 /* ---- калькулятор и справочник ---- */
 const cc=$('#cc'),cs=$('#cs');
