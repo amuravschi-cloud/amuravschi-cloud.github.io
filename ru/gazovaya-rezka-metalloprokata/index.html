@@ -26,6 +26,8 @@ a{color:inherit;text-decoration:none}
 .top .sp{flex:1}.top a:hover{color:#fff}
 .lang{display:inline-flex;border:1px solid rgba(255,255,255,.25);border-radius:6px;overflow:hidden}
 .lang a{padding:3px 9px}.lang a.on{background:var(--green-600);color:#fff}
+.top a{padding-block:12px;margin-block:-12px;display:inline-flex;align-items:center}
+.lang a{padding:12px 12px;margin-block:-12px}
 
 /* Навигация */
 .nav{display:flex;align-items:center;gap:36px;height:80px;padding:0 var(--gutter);background:var(--white);border-bottom:1px solid var(--line)}
@@ -34,6 +36,18 @@ a{color:inherit;text-decoration:none}
 .nav ul{display:flex;gap:26px;list-style:none;padding:0;font-size:15.5px;font-weight:500}
 .nav ul a{color:var(--ink);padding:8px 0;border-bottom:2px solid transparent;transition:.2s}.nav ul a:hover{color:var(--green-600);border-color:var(--green-600)}
 .nav .sp{flex:1}
+.nav{position:relative}
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:48px;height:48px;padding:0 10px;border:1.5px solid var(--line);border-radius:10px;background:#fff;cursor:pointer}
+.burger i{display:block;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.burger[aria-expanded=true] i:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.burger[aria-expanded=true] i:nth-child(2){opacity:0}
+.burger[aria-expanded=true] i:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mnav{display:none;position:absolute;top:100%;left:0;right:0;z-index:60;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 24px 48px rgba(21,19,29,.18);padding:10px 0 18px}
+.mnav.open{display:block}
+.mnav a{display:block;padding:14px var(--gutter);font:500 17px var(--font-body);color:var(--ink);border-bottom:1px solid var(--line)}
+.mnav a:active,.mnav a:hover{background:var(--green-100);color:var(--green-700)}
+.mnav .mtel{display:flex;gap:10px;flex-wrap:wrap;padding:16px var(--gutter) 0}
+.mnav .mtel a{display:inline-flex;border:1.5px solid var(--green-700);border-radius:10px;padding:10px 16px;color:var(--green-700);font-weight:500;border-bottom:1.5px solid var(--green-700)}
 .tel{display:flex;align-items:center;gap:10px;font:600 18px var(--font-body);letter-spacing:-.005em}
 .tel svg{width:20px;height:20px;fill:var(--green-600)}
 .btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 26px;border-radius:var(--radius);font:500 16px var(--font-body);border:1.5px solid transparent;cursor:pointer;transition:background .2s,color .2s,border-color .2s,transform .2s,box-shadow .2s}
@@ -60,7 +74,7 @@ h1{font:600 clamp(38px,4.8vw,78px)/1.05 var(--font-head);letter-spacing:-.025em;
 .fact{padding:0 30px 0 0;margin-right:30px;border-right:1px solid var(--line)}
 .fact:last-child{border:0;margin:0;padding:0}
 .fact b{display:block;font:600 clamp(28px,2.8vw,40px)/1.05 var(--font-head);letter-spacing:-.025em;color:var(--green-700)}
-.fact span{font-size:14px;color:var(--ink-3)}
+.fact>span{font-size:14px;color:var(--ink-3)}
 .feats{display:flex;gap:30px;margin-top:26px;flex-wrap:wrap}
 .feats span{position:relative;padding-left:14px;font-size:14.5px;font-weight:500;color:var(--green-700)}
 .feats span::before{content:"";position:absolute;left:0;top:3px;bottom:3px;width:3px;border-radius:2px;background:var(--sun)}
@@ -74,11 +88,11 @@ h1{font:600 clamp(38px,4.8vw,78px)/1.05 var(--font-head);letter-spacing:-.025em;
 .marq a::after{content:"/";font:500 13px var(--font-mark);color:var(--sun);margin:0 22px}
 @keyframes run{to{transform:translateX(-50%)}}
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
-.copy>*{animation:rise .8s both}.copy>*:nth-child(2){animation-delay:.08s}.copy>*:nth-child(3){animation-delay:.16s}.copy>*:nth-child(4){animation-delay:.24s}.copy>*:nth-child(5){animation-delay:.32s}.copy>*:nth-child(n+6){animation-delay:.4s}
+.copy>*{animation:rise .5s both}.copy>*:nth-child(2){animation-delay:.05s}.copy>*:nth-child(3){animation-delay:.1s}.copy>*:nth-child(4){animation-delay:.15s}.copy>*:nth-child(5){animation-delay:.2s}.copy>*:nth-child(n+6){animation-delay:.25s}
 @media(prefers-reduced-motion:reduce){.marq .track{animation:none}.copy>*{animation:none}}
 @media(max-width:1560px){.nav ul li:nth-child(3){display:none}}
 @media(max-width:1180px){.nav ul li:nth-child(4){display:none}.top .hide-m{display:none}}
-@media(max-width:980px){.top{overflow:hidden}.nav ul,.nav .tel span{display:none}.nav{gap:16px}.hero .photo{inset:42% 0 0 0;background-position:70% 50%}.hero::after{background:linear-gradient(180deg,#fff 0%,#fff 48%,rgba(255,255,255,0) 72%)}.copy{max-width:none;justify-content:flex-start;padding-top:36px}}
+@media(max-width:980px){.top{overflow:hidden}.nav ul,.nav .tel span{display:none}.nav{gap:16px}.burger{display:inline-flex}.hero .photo{inset:42% 0 0 0;background-position:70% 50%}.hero::after{background:linear-gradient(180deg,#fff 0%,#fff 48%,rgba(255,255,255,0) 72%)}.copy{max-width:none;justify-content:flex-start;padding-top:36px}}
 
 /* ===== Блоки под первым экраном ===== */
 html{scroll-behavior:smooth}
@@ -105,6 +119,9 @@ h2{font:600 clamp(30px,3.4vw,50px)/1.08 var(--font-head);letter-spacing:-.025em;
 .card .spec b{font-weight:500;color:var(--ink-3)}
 .card .act{display:flex;gap:10px;margin-top:auto;padding-top:18px}
 .btn.xs{height:40px;padding:0 16px;font-size:14px;border-radius:9px}
+.card.more-card{border:1.5px dashed var(--green-600);background:var(--green-100);justify-content:center}
+.card.more-card h3{margin-bottom:6px}.card.more-card .sub{margin-bottom:14px}
+.card.more-card:hover{transform:none;box-shadow:none;border-color:var(--green-700)}
 .btn.ghost{background:transparent;color:var(--green-700);border-color:rgba(0,85,61,.28)}
 .btn.ghost:hover{border-color:var(--green-700);background:var(--green-100)}
 
@@ -176,6 +193,12 @@ tbody tr{cursor:pointer}tbody tr:hover td{background:#F5F7F4}
 .btn.white{background:#fff;color:var(--green-900)}.btn.white:hover{background:var(--green-100)}
 .btn.line{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}.btn.line:hover{background:rgba(255,255,255,.1)}
 .ok{display:none;margin-top:14px;padding:14px 16px;border-radius:10px;background:var(--green-100);color:var(--green-700);font-weight:500}
+.drop{display:flex;align-items:center;gap:14px;border:1.5px dashed var(--green-600);border-radius:10px;padding:14px 16px;background:var(--green-100);cursor:pointer;transition:border-color .2s,background .2s}
+.drop:hover,.drop.over{border-style:solid;background:#D9EBE2}
+.drop svg{width:24px;height:24px;stroke:var(--green-700);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.drop b{display:block;font-size:14.5px;font-weight:500;color:var(--green-700)}
+.drop small{font-size:12.5px;color:var(--ink-3)}
+.drop input{position:absolute;width:1px;height:1px;opacity:0}
 .file{font-size:14px}
 .fab{position:fixed;right:20px;bottom:20px;z-index:40;display:none;align-items:center;gap:10px;height:54px;padding:0 22px;border-radius:999px;background:var(--green-700);color:#fff;font:500 15px var(--font-body);box-shadow:0 12px 30px rgba(0,85,61,.4);border:0;cursor:pointer}
 .fab.show{display:inline-flex}.fab b{background:#fff;color:var(--green-700);border-radius:999px;min-width:24px;height:24px;display:grid;place-items:center;font-size:13px;padding:0 6px}
@@ -189,7 +212,7 @@ footer a:hover{color:#fff}footer p{margin-bottom:6px}
 @media(max-width:1180px){.grid{grid-template-columns:repeat(3,1fr)}.svc{grid-template-columns:repeat(2,1fr)}.fg{grid-template-columns:1fr 1fr}}
 @media(max-width:900px){.calc,.bases,.order{grid-template-columns:1fr}.grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.top .badge{display:none}.top{justify-content:space-between}.top .sp{display:none}}
-@media(max-width:560px){.grid,.svc,.fg,.two{grid-template-columns:1fr}.card .act{flex-wrap:wrap}}
+@media(max-width:560px){.grid,.svc,.fg,.two{grid-template-columns:1fr}.card .act{flex-wrap:wrap}.cta{flex-direction:column;align-items:stretch}.cta .btn{width:100%;justify-content:center;white-space:nowrap}.copy2{padding-bottom:64px}}
 
 /* ===== Палитра B: графит как основа, зелёная кнопка; глубина тенями ===== */
 :root{--s950:#15131D;--s900:#201D2D;--s800:#2E2A42;--s700:#3C3857;--s500:#6B6784;--s300:#A9A6BE;--s200:#CFCDDC;--s100:#E8E7F0;--s50:#F4F4F8;--paper:#F7F7FA;
@@ -224,8 +247,9 @@ th{background:var(--s50)}tr.on td{background:var(--s100)}tbody tr:hover td{backg
 .svc .s{border:0;margin-left:-14px;padding:26px 24px 70px;min-height:210px;border-radius:14px;box-shadow:-12px 0 28px rgba(21,19,29,.22),var(--edge)}
 .svc .s:first-child{margin-left:0}
 .svc .s:nth-child(1){background:var(--s900);color:#fff}.svc .s:nth-child(2){background:var(--s700);color:#fff}
-.svc .s:nth-child(3){background:var(--s300);color:var(--s950)}.svc .s:nth-child(4){background:var(--s100);color:var(--s950)}
-.svc .s .n{color:inherit;opacity:.7}.svc .s p{color:inherit;opacity:.86}
+.svc .s:nth-child(3){background:#474257;color:#fff}.svc .s:nth-child(4){background:#605A74;color:#fff}
+.svc .s .n{color:var(--sun);opacity:1}.svc .s p{color:inherit;opacity:.86}
+.svc .s,.contact{background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 14px)}
 @media(max-width:1180px){.svc .s{margin-left:0;margin-bottom:14px}}
 
 /* компактные заголовки секций */
@@ -275,7 +299,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
 .about .at p{max-width:520px;color:var(--ink-2);font-size:17px}
 .facts3{display:flex;gap:clamp(24px,4vw,56px);margin:28px 0;flex-wrap:wrap}
 .facts3 b{display:block;font:600 clamp(28px,3vw,40px)/1.1 var(--font-head);letter-spacing:-.02em;color:var(--s700)}
-.facts3 span{font-size:14px;color:var(--ink-3)}
+.facts3 div>span{font-size:14px;color:var(--ink-3)}
 .about .acts{display:flex;gap:12px;flex-wrap:wrap}
 .band{margin:0 0 24px;border-radius:16px;overflow:hidden;box-shadow:var(--sh1);height:clamp(160px,22vw,300px)}
 .band img{width:100%;height:100%;object-fit:cover;object-position:50% 58%;display:block}
@@ -302,6 +326,7 @@ h2{font-size:clamp(26px,2.6vw,38px);letter-spacing:-.02em}
  .feats{gap:12px 22px;margin-top:20px}
  .grid{gap:10px}
  .card{display:grid;grid-template-columns:46px 1fr;column-gap:14px;padding:14px;border-radius:12px}
+ .card.more-card{display:flex;flex-direction:column;gap:4px}
  .card:hover{transform:none}
  .card .ico{grid-row:1/4;width:46px;height:46px;margin:0;border-radius:10px}
  .card .ico svg{width:26px;height:26px}
@@ -425,7 +450,12 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
 .more a:hover{border-color:var(--s500);box-shadow:var(--sh2);transform:translateY(-2px)}
 .more b{display:block;font:600 17px/1.25 var(--font-head);letter-spacing:-.01em;margin-bottom:6px}
 .more small{font-size:14px;color:var(--ink-2)}
-.band2{background:var(--s900);color:#fff;border-radius:14px;padding:clamp(28px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.more svg{width:30px;height:30px;stroke:var(--green-600);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;display:block;margin-bottom:12px}
+.lbx{position:fixed;inset:0;z-index:70;background:rgba(15,14,21,.88);display:none;place-items:center;padding:4vw;cursor:zoom-out}
+.lbx.on{display:grid}
+.lbx img{max-width:min(960px,92vw);max-height:88vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.at-svc .c img,.work img{cursor:zoom-in}
+.band2{background:var(--s900);color:#fff;border-radius:14px;padding:clamp(28px,4vw,48px);display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap;background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 14px)}
 .band2 h2{font:600 clamp(24px,2.6vw,34px)/1.15 var(--font-head);letter-spacing:-.02em;margin-bottom:8px}
 .band2 p{color:rgba(232,231,240,.78);max-width:520px}
 .band2 .acts{display:flex;gap:12px;flex-wrap:wrap}
@@ -442,7 +472,7 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
 .at-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:-34px;position:relative;z-index:3}
 .at-facts div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 26px;box-shadow:var(--sh2)}
 .at-facts b{display:block;font:600 clamp(30px,3vw,42px)/1 var(--font-head);letter-spacing:-.025em;color:var(--green-700)}
-.at-facts span{font-size:14.5px;color:var(--ink-2)}
+.at-facts div>span{font-size:14.5px;color:var(--ink-2)}
 .at-svc{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
 .at-svc .c{border:1px solid var(--line);border-radius:14px;background:#fff;overflow:hidden;display:flex;flex-direction:column}
 .at-svc .c img{width:100%;aspect-ratio:16/10;object-fit:cover;display:block}
@@ -482,6 +512,11 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
   <ul><li><a href="/#catalog">Сортамент</a></li><li><a href="/#calc">Калькулятор</a></li><li><a href="/#hand">Справочник весов</a></li><li><a href="/#service">Сервис и резка</a></li><li><a href="/#bases">Металлобазы</a></li><li><a href="/ru/atelier/">Ателье</a></li><li><a href="/#order">Контакты</a></li></ul>
   <span class="sp"></span>
   <div class="telbox"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><div class="tl"><a href="tel:+37368471530">+373 68 47-15-30</a><a href="tel:+37322471530">+373 22 47-15-30</a></div></div>
+  <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Меню"><i></i><i></i><i></i></button>
+  <nav class="mnav" id="mnav" aria-label="Мобильное меню">
+    <a href="/#catalog">Сортамент</a><a href="/#calc">Калькулятор</a><a href="/#hand">Справочник весов</a><a href="/#service">Сервис и резка</a><a href="/#bases">Металлобазы</a><a href="/ru/atelier/">Ателье</a><a href="/#order">Контакты</a>
+    <div class="mtel"><a href="tel:+37368471530">+373 68 47-15-30</a><a href="viber://chat?number=%2B37368471530">Viber</a></div>
+  </nav>
 </header>
 <div class="wrap"><nav class="crumbs" aria-label="Навигация"><a href="/">Главная</a><span>/</span><a href="/#service">Услуги</a><span>/</span>Газовая резка металла</nav></div>
 <section class="sp-hero"><div class="wrap">
@@ -497,15 +532,15 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
   <div class="band2"><div><h2>Пришлите список и размеры, рассчитаем резку</h2><p>По вопросам резки и гибки металла звоните или оставьте заявку. Мы ответим и назовём срок.</p></div>
     <div class="acts"><a class="btn primary" href="tel:+37368471530">+373 68 47-15-30</a><a class="btn outline" href="/#order">Оставить заявку</a></div></div>
 </div></section>
-<section class="sec alt"><div class="wrap"><div class="head"><div><div class="kick">Ещё</div><h2>Другие услуги</h2></div></div><div class="more"><a href="/ru/rezka-metalla-gilotinoj/"><b>Резка гильотиной</b><small>Листовой прокат: чистый ровный срез.</small></a><a href="/ru/rezka-metalla-pod-razmery/"><b>Резка под размеры</b><small>Раскрой листа и рулона по вашим размерам.</small></a><a href="/ru/valcovka-trub/"><b>Вальцовка труб</b><small>Гибка профильных труб по ребру.</small></a><a href="/ru/atelier/"><b>Ателье</b><small>Изделия из металла на заказ для интерьера и фасадов.</small></a></div></div></section>
+<section class="sec alt"><div class="wrap"><div class="head"><div><div class="kick">Ещё</div><h2>Другие услуги</h2></div></div><div class="more"><a href="/ru/rezka-metalla-gilotinoj/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 15L21 6l-3 9H3zM3 19h18"/></svg><b>Резка гильотиной</b><small>Листовой прокат: чистый ровный срез.</small></a><a href="/ru/rezka-metalla-pod-razmery/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17L17 3l4 4L7 21H3v-4zM14 6l4 4"/></svg><b>Резка под размеры</b><small>Раскрой листа и рулона по вашим размерам.</small></a><a href="/ru/valcovka-trub/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20c8 0 16-8 16-16M8 20c6 0 12-6 12-12"/></svg><b>Вальцовка труб</b><small>Гибка профильных труб по ребру.</small></a><a href="/ru/atelier/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.4 6.6L21 12l-6.6 2.4L12 21l-2.4-6.6L3 12l6.6-2.4z"/></svg><b>Ателье</b><small>Изделия из металла на заказ для интерьера и фасадов.</small></a></div></div></section>
 <footer><div class="wrap">
   <div class="fg">
     <div><img class="flogo" src="/img/logo-white.png" alt="Metalica Zuev"><p class="motto"><b>Традиции и ответственность</b><span>Основана в 1989</span></p></div>
-    <div><h4>Разделы</h4><p><a href="/#catalog">Сортамент</a></p><p><a href="/#calc">Калькулятор</a></p><p><a href="/#hand">Справочник весов</a></p><p><a href="/#service">Сервис и резка</a></p><p><a href="/#bases">Металлобазы</a></p><p><a href="/ru/atelier/">Ателье</a></p></div>
+    <div><h4>Разделы</h4><p><a href="/#catalog">Сортамент</a></p><p><a href="/#calc">Калькулятор</a></p><p><a href="/#hand">Справочник весов</a></p><p><a href="/#service">Сервис и резка</a></p><p><a href="/#bases">Металлобазы</a></p><p><a href="/ru/atelier/">Ателье</a></p><p><a href="/#order">Контакты</a></p></div>
     <div><h4>Контакты</h4>
       <p class="ct"><small>Мобильный</small><a href="tel:+37368471530">+373 68 47-15-30</a></p>
       <p class="ct"><small>Стационарный</small><a href="tel:+37322471530">+373 22 47-15-30</a></p>
-      <p class="ct"><small>Орхей</small><a href="tel:+37323580008">0235 80 008</a></p>
+      <p class="ct"><small>Орхей</small><a href="tel:+37323580008">+373 235 80-008</a></p>
       <p class="ct"><small>Viber</small><a href="viber://chat?number=%2B37368471530">Написать в Viber</a></p></div>
     <div><h4>Базы</h4><p>Кишинёв, str. Industrială, 48</p><p>Орхей, str. Unirii, 49D</p><p>Сынжера, str. Industrială, 3</p></div>
   </div>
@@ -513,8 +548,26 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
 </div></footer>
 <button class="totop" id="totop" type="button" aria-label="Наверх"><svg viewBox="0 0 24 24"><path d="M6 14l6-6 6 6"/></svg></button>
 <script>
+const bg=document.getElementById('burger'),mn=document.getElementById('mnav');
+if(bg&&mn){bg.onclick=()=>{const o=!mn.classList.contains('open');mn.classList.toggle('open',o);bg.setAttribute('aria-expanded',o)};
+mn.onclick=e=>{if(e.target.closest('a')){mn.classList.remove('open');bg.setAttribute('aria-expanded',false)}};}
 const tt=document.getElementById('totop');
 addEventListener('scroll',()=>tt.classList.toggle('show',scrollY>500),{passive:true});
 tt.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+/* счётчики цифр */
+if(!matchMedia('(prefers-reduced-motion: reduce)').matches){
+  const io=new IntersectionObserver(es=>es.forEach(en=>{if(!en.isIntersecting)return;io.unobserve(en.target);
+    const el=en.target,t=+el.dataset.cnt,st=performance.now();
+    const f=n=>{const k=Math.min(1,(n-st)/900);el.textContent=Math.round(t*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(f)};requestAnimationFrame(f)}),{threshold:.6});
+  document.querySelectorAll('[data-cnt]').forEach(el=>io.observe(el));
+}
+/* лайтбокс фото Ателье */
+const pics=document.querySelectorAll('.at-svc .c img,.work img');
+if(pics.length){
+  const lb=document.createElement('div');lb.className='lbx';lb.innerHTML='<img alt="">';document.body.appendChild(lb);
+  pics.forEach(p=>p.addEventListener('click',()=>{lb.querySelector('img').src=p.src;lb.querySelector('img').alt=p.alt;lb.classList.add('on')}));
+  lb.onclick=()=>lb.classList.remove('on');
+  addEventListener('keydown',e=>{if(e.key==='Escape')lb.classList.remove('on')});
+}
 </script>
 </body></html>
