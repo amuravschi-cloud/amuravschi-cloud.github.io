@@ -428,6 +428,28 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
 @media(max-width:1180px){.svp{grid-template-columns:repeat(6,1fr)}.svp a{grid-column:span 2}.svp a:nth-child(n+4){grid-column:span 3;aspect-ratio:2/1}}
 @media(max-width:560px){.svp{grid-template-columns:repeat(2,1fr);gap:10px}.svp a,.svp a:nth-child(n+4){grid-column:auto;aspect-ratio:4/3}.svp a:last-child{grid-column:1/-1;aspect-ratio:2/1}}
 
+/* ===== 3D-конструктор: кнопка в шапке, пункт мобильного меню, баннер ===== */
+.nav .nav3d{height:46px;padding:0 18px;font-size:15px;border-radius:12px;gap:9px;background:var(--green-700);color:#fff}
+.nav .nav3d svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.nav .nav3d:hover{background:var(--green-600)}
+.mnav a.m3d{display:flex;align-items:center;gap:10px;margin:4px var(--gutter) 6px;padding:14px 16px;border-radius:12px;background:var(--green-700);color:#fff;border-bottom:0;box-shadow:0 6px 18px rgba(0,85,61,.28)}
+.mnav a.m3d:hover,.mnav a.m3d:active{background:var(--green-600);color:#fff}
+.mnav a.m3d svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.c3d-wrap{padding:clamp(24px,3vw,40px) 0 0}
+.c3d{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:clamp(18px,3vw,36px);padding:clamp(22px,3vw,34px) clamp(22px,3.4vw,40px);border-radius:16px;background:linear-gradient(135deg,var(--s900),var(--s800));color:#fff;box-shadow:var(--sh2);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.045) 0 2px,transparent 2px 14px),linear-gradient(135deg,var(--s900),var(--s800));transition:transform .2s,box-shadow .2s}
+.c3d:hover{transform:translateY(-2px)}
+.c3d-ico{width:72px;height:72px;border-radius:18px;background:rgba(0,117,84,.22);display:grid;place-items:center;flex:none}
+.c3d-ico svg{width:40px;height:40px;fill:none;stroke:#7BE3BE;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.c3d .kick{color:#9BE3C6;margin-bottom:6px}
+.c3d h2{color:#fff;font-size:clamp(24px,2.4vw,34px);margin-bottom:8px}
+.c3d p{color:rgba(232,231,240,.8);max-width:560px;font-size:15.5px}
+.c3d .btn.primary{background:var(--green-600);white-space:nowrap}.c3d:hover .btn.primary{background:#0A8A64}
+.lnk3d{color:var(--green-600);font-weight:500;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:1180px){.nav .nav3d span{display:none}.nav .nav3d{width:46px;padding:0;justify-content:center}}
+@media(max-width:980px){.nav .nav3d{display:none}}
+@media(max-width:900px){.c3d{grid-template-columns:auto 1fr}.c3d .btn.primary{grid-column:1/-1;justify-content:center}}
+@media(max-width:560px){.c3d{grid-template-columns:1fr;padding:22px}.c3d-ico{width:56px;height:56px;border-radius:14px}.c3d-ico svg{width:32px;height:32px}}
+
 .crumbs{padding:18px 0 0;font-size:13.5px;color:var(--ink-3)}
 .crumbs a:hover{color:var(--s700)}.crumbs span{margin:0 8px;opacity:.5}
 .sp-hero{padding:clamp(28px,4vw,56px) 0 clamp(36px,5vw,72px)}
@@ -511,10 +533,11 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
   <a href="/"><img src="/img/logo-green.png" alt="Metalica Zuev"></a>
   <ul><li><a href="/#catalog">Сортамент</a></li><li><a href="/#calc">Калькулятор</a></li><li><a href="/#hand">Справочник весов</a></li><li><a href="/#service">Сервис и резка</a></li><li><a href="/#bases">Металлобазы</a></li><li><a href="/ru/atelier/">Ателье</a></li><li><a href="/#order">Контакты</a></li></ul>
   <span class="sp"></span>
+  <a class="btn primary nav3d" href="/constructor/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 21 7.5v9L12 21.5 3 16.5v-9z"/><path d="M3 7.5l9 5 9-5M12 12.5v9"/></svg><span>3D-конструктор</span></a>
   <div class="telbox"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.25 11.4 11.4 0 0 0 3.6.57 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.45.57 3.57a1 1 0 0 1-.25 1z"/></svg><div class="tl"><a href="tel:+37368471530">+373 68 47-15-30</a><a href="tel:+37322471530">+373 22 47-15-30</a></div></div>
   <button class="burger" id="burger" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Меню"><i></i><i></i><i></i></button>
   <nav class="mnav" id="mnav" aria-label="Мобильное меню">
-    <a href="/#catalog">Сортамент</a><a href="/#calc">Калькулятор</a><a href="/#hand">Справочник весов</a><a href="/#service">Сервис и резка</a><a href="/#bases">Металлобазы</a><a href="/ru/atelier/">Ателье</a><a href="/#order">Контакты</a>
+    <a class="m3d" href="/constructor/"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.5 21 7.5v9L12 21.5 3 16.5v-9z"/><path d="M3 7.5l9 5 9-5M12 12.5v9"/></svg>3D-конструктор</a><a href="/#catalog">Сортамент</a><a href="/#calc">Калькулятор</a><a href="/#hand">Справочник весов</a><a href="/#service">Сервис и резка</a><a href="/#bases">Металлобазы</a><a href="/ru/atelier/">Ателье</a><a href="/#order">Контакты</a>
     <div class="mtel"><a href="tel:+37368471530">+373 68 47-15-30</a><a href="viber://chat?number=%2B37368471530">Viber</a></div>
   </nav>
 </header>
@@ -549,7 +572,7 @@ dialog .dlg-b{flex:1;min-height:0;overflow:auto}
 <footer><div class="wrap">
   <div class="fg">
     <div><img class="flogo" src="/img/logo-white.png" alt="Metalica Zuev"><p class="motto"><b>Традиции и ответственность</b><span>Основана в 1989</span></p></div>
-    <div><h4>Разделы</h4><p><a href="/#catalog">Сортамент</a></p><p><a href="/#calc">Калькулятор</a></p><p><a href="/#hand">Справочник весов</a></p><p><a href="/#service">Сервис и резка</a></p><p><a href="/#bases">Металлобазы</a></p><p><a href="/ru/atelier/">Ателье</a></p><p><a href="/#order">Контакты</a></p></div>
+    <div><h4>Разделы</h4><p><a href="/#catalog">Сортамент</a></p><p><a href="/#calc">Калькулятор</a></p><p><a href="/#hand">Справочник весов</a></p><p><a href="/#service">Сервис и резка</a></p><p><a href="/#bases">Металлобазы</a></p><p><a href="/ru/atelier/">Ателье</a></p><p><a href="/constructor/">3D-конструктор</a></p><p><a href="/#order">Контакты</a></p></div>
     <div><h4>Контакты</h4>
       <p class="ct"><small>Мобильный</small><a href="tel:+37368471530">+373 68 47-15-30</a></p>
       <p class="ct"><small>Стационарный</small><a href="tel:+37322471530">+373 22 47-15-30</a></p>
